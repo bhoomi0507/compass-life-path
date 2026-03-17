@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 12 33% 95%;
+    --foreground: 220 20% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 20% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 18%;
+
+    --primary: 5 30% 62%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 5 30% 88%;
+    --secondary-foreground: 220 20% 18%;
+
+    --muted: 12 20% 92%;
+    --muted-foreground: 220 10% 45%;
+
+    --accent: 340 25% 75%;
+    --accent-foreground: 220 20% 18%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 12 15% 88%;
+    --input: 12 15% 88%;
+    --ring: 5 30% 62%;
+
+    --radius: 1.5rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --font-display: 'Playfair Display', serif;
+    --font-body: 'Inter', sans-serif;
+
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.04);
+    --shadow-card-hover: 0 14px 40px rgba(0, 0, 0, 0.08);
+  }
+
+  .dark {
+    --background: 220 30% 8%;
+    --foreground: 12 20% 92%;
+
+    --card: 220 28% 12%;
+    --card-foreground: 12 20% 92%;
+
+    --popover: 220 28% 12%;
+    --popover-foreground: 12 20% 92%;
+
+    --primary: 5 30% 65%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 25% 18%;
+    --secondary-foreground: 12 20% 92%;
+
+    --muted: 220 25% 16%;
+    --muted-foreground: 12 10% 60%;
+
+    --accent: 340 20% 35%;
+    --accent-foreground: 12 20% 92%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 25% 18%;
+    --input: 220 25% 18%;
+    --ring: 5 30% 65%;
+
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.2);
+    --shadow-card-hover: 0 14px 40px rgba(0, 0, 0, 0.3);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .compass-card {
+    @apply bg-card rounded-3xl border border-border p-8;
+    box-shadow: var(--shadow-card);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .compass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-card-hover);
+    border-color: hsl(var(--primary));
+  }
+
+  .section-spacing {
+    @apply py-20 md:py-28;
+  }
+
+  .container-narrow {
+    @apply max-w-6xl mx-auto px-6 md:px-8;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
