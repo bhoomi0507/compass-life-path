@@ -121,7 +121,7 @@ const CareerRoadmap = () => {
               <Link to="/recommendations"><ArrowLeft className="mr-2 h-4 w-4" /> Back to Career Matches</Link>
             </Button>
             <Button variant="hero" size="lg" asChild>
-              <Link to="/courses">Continue to Courses <ArrowRight className="ml-2 h-4 w-4" /></Link>
+              <Link to="/opportunities">Continue to Opportunities <ArrowRight className="ml-2 h-4 w-4" /></Link>
             </Button>
           </div>
         </div>

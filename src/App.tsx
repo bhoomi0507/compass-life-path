@@ -13,8 +13,8 @@ import CareerRecommendations from "./pages/CareerRecommendations";
 import CareerSimulation from "./pages/CareerSimulation";
 import LearningPath from "./pages/LearningPath";
 import Dashboard from "./pages/Dashboard";
-import Courses from "./pages/Courses";
 import Opportunities from "./pages/Opportunities";
+import { Navigate } from "react-router-dom";
 
 const queryClient = new QueryClient();
 
@@ -34,7 +34,7 @@ const App = () => (
           <Route path="/simulation" element={<CareerSimulation />} />
           <Route path="/learning-path" element={<LearningPath />} />
           <Route path="/dashboard" element={<Dashboard />} />
-          <Route path="/courses" element={<Courses />} />
+          <Route path="/courses" element={<Navigate to="/opportunities" replace />} />
           <Route path="/opportunities" element={<Opportunities />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
