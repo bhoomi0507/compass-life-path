@@ -146,7 +146,7 @@ const Dashboard = () => {
                   className="w-full mt-6"
                   asChild
                 >
-                  <Link to="/courses">
+                  <Link to="/opportunities">
                     Continue Learning
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
