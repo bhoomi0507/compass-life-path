@@ -3,15 +3,19 @@ import { MessageCircle, X, Send } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const PREDEFINED_QA: Record<string, string> = {
-  "What should I do next?":
-    "Based on your progress, you should continue with your current course modules. Once you finish, try the career simulation to test your skills!",
+  "What should I do today?":
+    "Based on your progress, your next step is to complete Module 2 of your Content Writing course. It should take about 15 minutes. After that, try the career simulation!",
+  "Am I ready to earn?":
+    "Not yet — but you're close! You're 2 steps away from unlocking real freelance opportunities. Complete your remaining modules and pass the final test to start earning.",
   "Explain my roadmap":
     "Your roadmap has 8 steps: talk to a mentor → get assigned a course → try career simulation → learn → complete modules → take the final test → unlock opportunities → start earning. You're currently in the learning phase!",
+  "What should I do next?":
+    "Continue with Module 2 of your course. Once you finish all modules, you'll take a final test and unlock job opportunities!",
   "How do I complete my course?":
     "Go to the Courses page, work through each module in order, and complete the exercises. Once all modules are done, you'll unlock the final test.",
 };
 
-const QUICK_PROMPTS = Object.keys(PREDEFINED_QA);
+const QUICK_PROMPTS = ["What should I do today?", "Am I ready to earn?", "Explain my roadmap"];
 
 const Chatbot = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,11 +30,11 @@ const Chatbot = () => {
     setMessages((prev) => [...prev, { role: "user", text: userMsg }]);
     setInput("");
 
-    const match = QUICK_PROMPTS.find(
+    const matchKey = Object.keys(PREDEFINED_QA).find(
       (q) => q.toLowerCase() === userMsg.toLowerCase()
     );
-    const reply = match
-      ? PREDEFINED_QA[match]
+    const reply = matchKey
+      ? PREDEFINED_QA[matchKey]
       : "That's a great question! For now, I'd suggest checking your dashboard for next steps or reaching out to your mentor for personalized guidance.";
 
     setTimeout(() => {
@@ -40,7 +44,6 @@ const Chatbot = () => {
 
   return (
     <>
-      {/* Floating button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
         className={cn(
@@ -53,16 +56,13 @@ const Chatbot = () => {
         {isOpen ? <X className="h-5 w-5" /> : <MessageCircle className="h-5 w-5" />}
       </button>
 
-      {/* Chat window */}
       {isOpen && (
         <div className="fixed bottom-24 right-6 z-50 w-[340px] max-h-[480px] rounded-2xl border border-border bg-card shadow-xl flex flex-col overflow-hidden animate-in slide-in-from-bottom-4 fade-in duration-300">
-          {/* Header */}
           <div className="px-5 py-4 border-b border-border bg-primary/5">
             <p className="font-display text-sm font-semibold text-foreground">HerPath Assistant</p>
             <p className="text-[11px] text-muted-foreground font-body">Ask me about your journey</p>
           </div>
 
-          {/* Messages */}
           <div className="flex-1 overflow-y-auto px-4 py-4 space-y-3 min-h-[200px] max-h-[300px]">
             {messages.map((m, i) => (
               <div
@@ -79,7 +79,6 @@ const Chatbot = () => {
             ))}
           </div>
 
-          {/* Quick prompts */}
           <div className="px-4 pb-2 flex flex-wrap gap-1.5">
             {QUICK_PROMPTS.map((q) => (
               <button
@@ -92,7 +91,6 @@ const Chatbot = () => {
             ))}
           </div>
 
-          {/* Input */}
           <div className="px-4 py-3 border-t border-border flex gap-2">
             <input
               value={input}
