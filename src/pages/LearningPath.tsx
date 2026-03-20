@@ -21,7 +21,6 @@ import {
   Hammer,
   FolderOpen,
   Rocket,
-  Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -72,17 +71,10 @@ const HOW_IT_WORKS = [
   },
   {
     step: 5,
-    title: "Start Earning 💸",
+    title: "Start Earning",
     description: "Get matched with opportunities and begin earning.",
     icon: Rocket,
   },
-];
-
-const WEEKLY_PLAN = [
-  { weeks: "Week 1–2", task: "Learn the fundamentals and set up your workspace" },
-  { weeks: "Week 3–4", task: "Practice with guided exercises and small projects" },
-  { weeks: "Week 5–6", task: "Build portfolio-ready projects with feedback" },
-  { weeks: "Week 7–8", task: "Apply for entry-level gigs and freelance work" },
 ];
 
 const LearningPath = () => {
@@ -94,7 +86,6 @@ const LearningPath = () => {
   const howItWorksRef = useRef<HTMLDivElement>(null);
   const mentorBookingRef = useRef<HTMLDivElement>(null);
 
-  // Try to get selected career from localStorage
   const [selectedCareer, setSelectedCareer] = useState("Content Writing");
 
   useEffect(() => {
@@ -125,87 +116,91 @@ const LearningPath = () => {
     <div className="min-h-screen bg-background">
       <Navbar />
       <div className="pt-28 pb-20">
-        <div className="max-w-3xl mx-auto px-6 space-y-12">
+        <div className="max-w-3xl mx-auto px-6">
 
-          {/* ─── Section 1: Career Confirmation ─── */}
-          <section className="compass-card p-6 md:p-8 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full -translate-y-1/2 translate-x-1/2" />
-            <div className="relative">
-              <p className="text-xs font-body font-medium uppercase tracking-widest text-primary mb-3">
-                Career Selected
-              </p>
-              <h1 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-3 leading-tight">
-                You've chosen: {selectedCareer}
-              </h1>
-              <p className="text-sm text-muted-foreground font-body leading-relaxed mb-6 max-w-xl">
-                Based on your interests and inputs, this career aligns well with your strengths and goals. Here's what you can expect as you get started.
-              </p>
+          {/* ─── Hero: Career Confirmation ─── */}
+          <section className="text-center mb-16">
+            <span className="inline-block text-xs font-body font-semibold uppercase tracking-[0.2em] text-primary mb-4 px-4 py-1.5 rounded-full bg-primary/8 border border-primary/15">
+              Career Selected
+            </span>
+            <h1 className="font-display text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-foreground mb-4 leading-[1.1]">
+              You've chosen: {selectedCareer}
+            </h1>
+            <p className="text-muted-foreground font-body leading-relaxed max-w-lg mx-auto mb-8">
+              Based on your interests and inputs, this career aligns well with your strengths and goals.
+            </p>
 
-              <div className="flex flex-wrap gap-4 mb-8">
-                <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-secondary/60 border border-border">
+            <div className="flex flex-wrap justify-center gap-3 mb-10">
+              <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-card border border-border shadow-sm">
+                <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center">
                   <IndianRupee className="h-4 w-4 text-primary" />
-                  <div>
-                    <p className="text-xs text-muted-foreground font-body">Expected earnings</p>
-                    <p className="text-sm font-body font-semibold text-foreground">₹10,000–₹50,000/mo</p>
-                  </div>
                 </div>
-                <div className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl bg-secondary/60 border border-border">
-                  <Timer className="h-4 w-4 text-primary" />
-                  <div>
-                    <p className="text-xs text-muted-foreground font-body">Time commitment</p>
-                    <p className="text-sm font-body font-semibold text-foreground">1–2 hrs/day</p>
-                  </div>
+                <div className="text-left">
+                  <p className="text-[11px] text-muted-foreground font-body leading-none mb-0.5">Earnings</p>
+                  <p className="text-sm font-body font-semibold text-foreground">₹10k–₹50k/mo</p>
                 </div>
               </div>
-
-              <Button
-                variant="hero"
-                size="lg"
-                onClick={() => scrollTo(howItWorksRef)}
-              >
-                View Your Path
-                <ArrowDown className="ml-2 h-4 w-4" />
-              </Button>
+              <div className="inline-flex items-center gap-2.5 px-5 py-3 rounded-2xl bg-card border border-border shadow-sm">
+                <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center">
+                  <Timer className="h-4 w-4 text-primary" />
+                </div>
+                <div className="text-left">
+                  <p className="text-[11px] text-muted-foreground font-body leading-none mb-0.5">Daily time</p>
+                  <p className="text-sm font-body font-semibold text-foreground">1–2 hrs/day</p>
+                </div>
+              </div>
             </div>
+
+            <Button
+              variant="hero"
+              size="lg"
+              onClick={() => scrollTo(howItWorksRef)}
+            >
+              View Your Path
+              <ArrowDown className="ml-2 h-4 w-4" />
+            </Button>
           </section>
 
-          {/* ─── Section 2: How It Works ─── */}
-          <section ref={howItWorksRef} className="scroll-mt-24">
-            <div className="text-center mb-8">
+          {/* ─── How It Works ─── */}
+          <section ref={howItWorksRef} className="scroll-mt-24 mb-16">
+            <div className="text-center mb-10">
               <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
                 How It Works
               </h2>
               <p className="text-sm text-muted-foreground font-body">
-                A clear path from learning to earning — step by step.
+                From learning to earning — your journey in five steps.
               </p>
             </div>
 
-            <div className="relative">
-              {/* Vertical timeline line */}
-              <div className="absolute left-[22px] md:left-[26px] top-4 bottom-4 w-px bg-border" />
+            <div className="relative pl-8 md:pl-10">
+              {/* Timeline line */}
+              <div className="absolute left-[15px] md:left-[19px] top-2 bottom-2 w-[2px] bg-gradient-to-b from-primary/30 via-primary/15 to-transparent rounded-full" />
 
-              <div className="space-y-6">
-                {HOW_IT_WORKS.map((item, i) => {
+              <div className="space-y-5">
+                {HOW_IT_WORKS.map((item) => {
                   const Icon = item.icon;
                   return (
-                    <div key={item.step} className="relative flex items-start gap-5 pl-1">
-                      {/* Step circle */}
-                      <div className="relative z-10 w-11 h-11 md:w-[52px] md:h-[52px] rounded-2xl bg-primary/10 border-2 border-primary/20 flex items-center justify-center flex-shrink-0">
-                        <Icon className="h-5 w-5 text-primary" />
-                      </div>
-                      {/* Content */}
-                      <div className="compass-card p-5 flex-1">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="text-xs font-body font-semibold text-primary uppercase tracking-wide">
-                            Step {item.step}
-                          </span>
+                    <div key={item.step} className="relative flex items-start gap-4">
+                      {/* Dot on timeline */}
+                      <div className="absolute -left-8 md:-left-10 top-5 w-[14px] h-[14px] md:w-[18px] md:h-[18px] rounded-full bg-card border-[3px] border-primary/40 shadow-sm z-10" />
+                      {/* Card */}
+                      <div className="flex-1 compass-card p-5 md:p-6 group hover:shadow-md transition-shadow duration-300">
+                        <div className="flex items-start gap-4">
+                          <div className="w-10 h-10 rounded-xl bg-primary/8 flex items-center justify-center flex-shrink-0 group-hover:bg-primary/15 transition-colors duration-300">
+                            <Icon className="h-[18px] w-[18px] text-primary" />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-[10px] font-body font-bold text-primary/60 uppercase tracking-[0.15em] mb-1">
+                              Step {item.step}
+                            </p>
+                            <h3 className="font-display text-[15px] font-bold text-foreground mb-1 leading-snug">
+                              {item.title}
+                            </h3>
+                            <p className="text-[13px] text-muted-foreground font-body leading-relaxed">
+                              {item.description}
+                            </p>
+                          </div>
                         </div>
-                        <h3 className="font-display text-base font-bold text-foreground mb-1">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm text-muted-foreground font-body leading-relaxed">
-                          {item.description}
-                        </p>
                       </div>
                     </div>
                   );
@@ -214,53 +209,31 @@ const LearningPath = () => {
             </div>
           </section>
 
-          {/* ─── Section 3: AI-Generated Timeline ─── */}
-          <section className="compass-card p-6 md:p-8">
-            <div className="flex items-center gap-2 mb-1">
-              <Sparkles className="h-5 w-5 text-primary" />
-              <h2 className="font-display text-xl font-bold text-foreground">
-                Your Personalized Weekly Plan
-              </h2>
-            </div>
-            <p className="text-sm text-muted-foreground font-body mb-6">
-              A suggested timeline based on your career choice and availability.
-            </p>
-
-            <div className="space-y-3">
-              {WEEKLY_PLAN.map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-start gap-4 px-4 py-3.5 rounded-xl bg-secondary/40 border border-border"
+          {/* ─── CTA Bridge ─── */}
+          <section className="mb-16">
+            <div className="compass-card p-8 md:p-10 text-center relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/[0.03] to-accent/[0.04]" />
+              <div className="relative">
+                <p className="text-sm text-muted-foreground font-body italic mb-2">
+                  Guided by mentors, tailored to your time, and focused on real outcomes.
+                </p>
+                <p className="text-xs text-muted-foreground/70 font-body mb-6">
+                  Your first mentor session is free — no commitment required.
+                </p>
+                <Button
+                  variant="hero"
+                  size="xl"
+                  onClick={() => scrollTo(mentorBookingRef)}
                 >
-                  <span className="text-xs font-body font-bold text-primary whitespace-nowrap mt-0.5 min-w-[72px]">
-                    {item.weeks}
-                  </span>
-                  <p className="text-sm font-body text-foreground leading-relaxed">
-                    {item.task}
-                  </p>
-                </div>
-              ))}
+                  Continue to Free Mentor Session
+                  <ArrowDown className="ml-2 h-4 w-4" />
+                </Button>
+              </div>
             </div>
           </section>
 
-          {/* ─── Reassurance + CTA ─── */}
-          <section className="text-center space-y-4">
-            <p className="text-sm text-muted-foreground font-body italic">
-              Guided by mentors, tailored to your time, and focused on real outcomes.
-            </p>
-            <Button
-              variant="hero"
-              size="xl"
-              onClick={() => scrollTo(mentorBookingRef)}
-            >
-              Continue to Free Mentor Session
-              <ArrowDown className="ml-2 h-4 w-4" />
-            </Button>
-          </section>
-
-          {/* ─── Mentor Booking (existing) ─── */}
-          <div ref={mentorBookingRef} className="scroll-mt-24 space-y-10">
-            {/* Page Header */}
+          {/* ─── Mentor Booking ─── */}
+          <div ref={mentorBookingRef} className="scroll-mt-24 space-y-8">
             <div className="text-center">
               <h2 className="font-display text-2xl md:text-3xl font-bold text-foreground mb-2">
                 Your Mentor
@@ -314,7 +287,6 @@ const LearningPath = () => {
                 </p>
 
                 <div className="grid md:grid-cols-2 gap-8">
-                  {/* Date Picker */}
                   <div>
                     <label className="text-sm font-body font-medium text-foreground mb-3 block">
                       <CalendarDays className="h-4 w-4 inline-block mr-2 text-primary" />
@@ -331,7 +303,6 @@ const LearningPath = () => {
                     </div>
                   </div>
 
-                  {/* Time + Duration */}
                   <div className="space-y-6">
                     <div>
                       <label className="text-sm font-body font-medium text-foreground mb-3 block">
@@ -381,7 +352,6 @@ const LearningPath = () => {
                   </div>
                 </div>
 
-                {/* Summary + Confirm */}
                 <div className="mt-8 pt-6 border-t border-border">
                   {selectedDate && selectedTime ? (
                     <div className="flex items-center gap-3 px-4 py-3 rounded-xl bg-secondary/50 mb-6">
@@ -450,7 +420,7 @@ const LearningPath = () => {
           </div>
 
           {/* Back Navigation */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-12">
             <Button variant="hero-outline" size="lg" asChild>
               <Link to="/recommendations">
                 <ArrowLeft className="mr-2 h-4 w-4" /> Back to Careers
