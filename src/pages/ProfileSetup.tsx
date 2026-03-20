@@ -67,7 +67,6 @@ const ProfileSetup = () => {
     if (step < 3) {
       setStep(step + 1);
     } else {
-      // Save to localStorage for downstream pages
       localStorage.setItem("userName", name);
       localStorage.setItem("userAge", age);
       localStorage.setItem("skills", JSON.stringify(selectedSkills));
@@ -98,7 +97,7 @@ const ProfileSetup = () => {
               <div
                 key={s}
                 className={`h-1.5 rounded-full transition-all duration-300 ${
-                  s <= step ? "w-10 bg-[#0f172a]" : "w-6 bg-slate-200"
+                  s <= step ? "w-10 bg-primary" : "w-6 bg-border"
                 }`}
               />
             ))}
@@ -136,7 +135,7 @@ const ProfileSetup = () => {
                   value={name}
                   onChange={(e) => { setName(e.target.value); setShowError(false); }}
                   placeholder="e.g. Priya"
-                  className="w-full h-12 rounded-xl border border-slate-200 bg-slate-50 px-4 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#0f172a]/20 focus:border-[#0f172a]"
+                  className="w-full h-12 rounded-xl border border-input bg-card px-4 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-primary"
                 />
               </div>
 
@@ -151,7 +150,7 @@ const ProfileSetup = () => {
                   placeholder="e.g. 22"
                   min="13"
                   max="99"
-                  className="w-full h-12 rounded-xl border border-slate-200 bg-slate-50 px-4 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#0f172a]/20 focus:border-[#0f172a]"
+                  className="w-full h-12 rounded-xl border border-input bg-card px-4 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-primary"
                 />
               </div>
             </div>
@@ -172,8 +171,8 @@ const ProfileSetup = () => {
                       onClick={() => { toggleItem(skill, selectedSkills, setSelectedSkills); setShowError(false); }}
                       className={`px-4 py-2 rounded-full text-sm font-body transition-all duration-200 border ${
                         selectedSkills.includes(skill)
-                          ? "bg-[#0f172a] text-white border-[#0f172a]"
-                          : "bg-slate-50 text-foreground border-slate-200 hover:border-[#1e293b]"
+                          ? "bg-primary text-primary-foreground border-primary"
+                          : "bg-card text-foreground border-border hover:border-primary"
                       }`}
                     >
                       {skill}
@@ -187,7 +186,7 @@ const ProfileSetup = () => {
                     value={otherSkill}
                     onChange={(e) => setOtherSkill(e.target.value)}
                     placeholder="Type your skill here..."
-                    className="w-full h-10 rounded-xl border border-slate-200 bg-slate-50 px-4 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#0f172a]/20 focus:border-[#0f172a] mt-2"
+                    className="w-full h-10 rounded-xl border border-input bg-card px-4 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-primary mt-2"
                   />
                 )}
               </div>
@@ -204,8 +203,8 @@ const ProfileSetup = () => {
                       onClick={() => { toggleItem(interest, selectedInterests, setSelectedInterests); setShowError(false); }}
                       className={`px-4 py-2 rounded-full text-sm font-body transition-all duration-200 border ${
                         selectedInterests.includes(interest)
-                          ? "bg-[#0f172a] text-white border-[#0f172a]"
-                          : "bg-slate-50 text-foreground border-slate-200 hover:border-[#1e293b]"
+                          ? "bg-primary text-primary-foreground border-primary"
+                          : "bg-card text-foreground border-border hover:border-primary"
                       }`}
                     >
                       {interest}
@@ -219,7 +218,7 @@ const ProfileSetup = () => {
                     value={otherInterest}
                     onChange={(e) => setOtherInterest(e.target.value)}
                     placeholder="Type your interest here..."
-                    className="w-full h-10 rounded-xl border border-slate-200 bg-slate-50 px-4 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-[#0f172a]/20 focus:border-[#0f172a] mt-2"
+                    className="w-full h-10 rounded-xl border border-input bg-card px-4 font-body text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-primary mt-2"
                   />
                 )}
               </div>
@@ -240,12 +239,12 @@ const ProfileSetup = () => {
                       onClick={() => { setExperience(opt.value); setShowError(false); }}
                       className={`w-full text-left px-5 py-4 rounded-xl border transition-all duration-200 ${
                         experience === opt.value
-                          ? "bg-[#0f172a] text-white border-[#0f172a] shadow-md"
-                          : "bg-slate-50 text-foreground border-slate-200 hover:border-[#1e293b]"
+                          ? "bg-primary text-primary-foreground border-primary shadow-md"
+                          : "bg-card text-foreground border-border hover:border-primary"
                       }`}
                     >
                       <span className="font-semibold text-sm">{opt.label}</span>
-                      <p className={`text-xs mt-1 ${experience === opt.value ? "text-white/70" : "text-muted-foreground"}`}>
+                      <p className={`text-xs mt-1 ${experience === opt.value ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
                         {opt.desc}
                       </p>
                     </button>
@@ -266,14 +265,14 @@ const ProfileSetup = () => {
                         onClick={() => { setWorkPreference(opt.value); setShowError(false); }}
                         className={`w-full text-left px-5 py-4 rounded-xl border transition-all duration-200 flex items-center gap-4 ${
                           workPreference === opt.value
-                            ? "bg-[#0f172a] text-white border-[#0f172a] shadow-md"
-                            : "bg-slate-50 text-foreground border-slate-200 hover:border-[#1e293b]"
+                            ? "bg-primary text-primary-foreground border-primary shadow-md"
+                            : "bg-card text-foreground border-border hover:border-primary"
                         }`}
                       >
-                        <Icon className={`h-5 w-5 flex-shrink-0 ${workPreference === opt.value ? "text-white" : "text-muted-foreground"}`} />
+                        <Icon className={`h-5 w-5 flex-shrink-0 ${workPreference === opt.value ? "text-primary-foreground" : "text-muted-foreground"}`} />
                         <div>
                           <span className="font-semibold text-sm">{opt.label}</span>
-                          <p className={`text-xs mt-0.5 ${workPreference === opt.value ? "text-white/70" : "text-muted-foreground"}`}>
+                          <p className={`text-xs mt-0.5 ${workPreference === opt.value ? "text-primary-foreground/70" : "text-muted-foreground"}`}>
                             {opt.desc}
                           </p>
                         </div>
@@ -292,16 +291,17 @@ const ProfileSetup = () => {
                 variant="outline"
                 size="lg"
                 onClick={handleBack}
-                className="border-slate-200 text-foreground hover:bg-slate-50"
+                className="border-border text-foreground hover:bg-muted"
               >
                 <ChevronLeft className="h-4 w-4 mr-1" />
                 Back
               </Button>
             )}
             <Button
-              size="lg"
+              variant="hero"
+              size="xl"
               onClick={handleNext}
-              className="flex-1 bg-[#0f172a] hover:bg-[#1e293b] text-white"
+              className="flex-1"
             >
               {step === 3 ? "Continue" : "Next"}
               {step < 3 && <ChevronRight className="h-4 w-4 ml-1" />}
