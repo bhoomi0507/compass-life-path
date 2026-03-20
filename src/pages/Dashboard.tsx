@@ -167,9 +167,15 @@ const Dashboard = () => {
               <h3 className="font-display text-lg font-semibold text-foreground mb-1">
                 Your Career Journey
               </h3>
-              <p className="text-xs text-muted-foreground font-body mb-8">
+              <p className="text-xs text-muted-foreground font-body mb-2">
                 Follow each step to go from learning to earning.
               </p>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/8 border border-primary/15 mb-8">
+                <Rocket className="h-3.5 w-3.5 text-primary" />
+                <span className="text-xs font-body font-medium text-primary">
+                  Estimated time to earning: 8–9 weeks
+                </span>
+              </div>
 
               <div className="relative pl-8">
                 {/* Vertical line */}
