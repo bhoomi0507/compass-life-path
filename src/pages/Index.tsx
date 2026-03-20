@@ -143,30 +143,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Who It Is For */}
-      <section className="section-spacing bg-muted/30">
-        <div className="container-narrow">
-          <div className="text-center mb-16">
-            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">Who It's For</h2>
-            <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">HerPath is designed for anyone ready to explore a career that fits their life</p>
-          </div>
-          <div className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            {[
-              { icon: GraduationCap, text: "Students exploring career options" },
-              { icon: Users, text: "Women re-entering the workforce" },
-              { icon: Clock, text: "People looking for flexible remote work" },
-              { icon: ArrowRight, text: "Professionals considering a career switch" },
-            ].map((item) => (
-              <div key={item.text} className="flex items-center gap-4 compass-card py-5 px-6 group">
-                <div className="w-10 h-10 rounded-xl bg-secondary/60 flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
-                  <item.icon className="h-5 w-5 text-primary" />
-                </div>
-                <p className="font-body text-foreground font-medium">{item.text}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA */}
       <section className="section-spacing">
