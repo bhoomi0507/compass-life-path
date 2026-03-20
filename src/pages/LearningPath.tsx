@@ -126,8 +126,11 @@ const LearningPath = () => {
             <h1 className="font-display text-3xl md:text-4xl lg:text-[2.75rem] font-bold text-foreground mb-4 leading-[1.1]">
               You've chosen: {selectedCareer}
             </h1>
-            <p className="text-muted-foreground font-body leading-relaxed max-w-lg mx-auto mb-8">
-              Based on your interests and inputs, this career aligns well with your strengths and goals.
+            <p className="text-muted-foreground font-body leading-relaxed max-w-lg mx-auto mb-3">
+              This path matches your goal of starting to earn with limited time.
+            </p>
+            <p className="text-sm text-muted-foreground font-body max-w-md mx-auto mb-8">
+              Based on your time availability, we've created a personalized path just for you.
             </p>
 
             <div className="flex flex-wrap justify-center gap-3 mb-10">

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { BookOpen, Lightbulb, Target, Users, Briefcase, ArrowRight, Sparkles, Clock, GraduationCap, Heart, Shield } from "lucide-react";
+import { BookOpen, Lightbulb, Target, Users, Briefcase, ArrowRight, Sparkles, Clock, GraduationCap, Heart, Shield, TrendingDown, Globe, Timer } from "lucide-react";
 import heroImage from "@/assets/hero-video-call.png";
 import logo from "@/assets/herpath-logo.png";
 
@@ -20,11 +20,11 @@ const Index = () => {
                 <img src={logo} alt="HerPath" className="h-24 w-24 dark:invert" />
                 <span className="text-sm font-body text-muted-foreground tracking-wide uppercase">HerPath</span>
               </div>
-              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance">
-                Discover Careers That Fit Your Life
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance" style={{ lineHeight: '1.1' }}>
+                From Learning to Earning — Designed for Women
               </h1>
               <p className="text-lg text-muted-foreground font-body leading-relaxed max-w-lg">
-                A guided career platform with mentor support. Discover careers, learn skills, track progress, and get matched with opportunities.
+                Millions of educated women never get the chance to turn their skills into income. HerPath helps you bridge that gap.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button variant="hero" size="xl" asChild>
@@ -53,6 +53,37 @@ const Index = () => {
             <Shield className="h-5 w-5 text-primary flex-shrink-0" />
             <p className="text-sm font-body text-muted-foreground">
               <strong className="text-foreground">HerPath</strong> is a guided career discovery platform with mentor support — helping women discover careers, learn skills, track progress, and get matched with opportunities.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Why This Matters */}
+      <section className="section-spacing">
+        <div className="container-narrow">
+          <div className="text-center mb-16">
+            <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">Why This Matters</h2>
+            <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">The gap between women's potential and opportunity is real — and solvable</p>
+          </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+            {[
+              { icon: Globe, stat: "~47%", desc: "of women globally participate in the workforce, vs ~72% of men" },
+              { icon: TrendingDown, stat: "~20–25%", desc: "In India, female workforce participation drops to as low as 20–25%" },
+              { icon: Timer, stat: "2–5×", desc: "Women spend 2–5x more time on unpaid domestic work than men" },
+              { icon: Heart, stat: "Equal skills", desc: "Many women underestimate their abilities despite having equal or greater skills" },
+            ].map((item) => (
+              <div key={item.stat} className="compass-card text-center group">
+                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300">
+                  <item.icon className="h-6 w-6 text-primary" />
+                </div>
+                <p className="font-display text-2xl font-bold text-foreground mb-2">{item.stat}</p>
+                <p className="text-sm text-muted-foreground font-body leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+          <div className="mt-12 text-center">
+            <p className="font-display text-xl md:text-2xl font-semibold text-foreground max-w-2xl mx-auto leading-snug">
+              HerPath is built to change this — by turning potential into income.
             </p>
           </div>
         </div>
