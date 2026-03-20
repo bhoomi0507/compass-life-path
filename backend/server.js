@@ -49,20 +49,45 @@ app.get("/api/recommendations", async (req, res) => {
 });
 app.post("/recommendations", async (req, res) => {
   try {
-    const { interest } = req.body;
+    const { name, age, skills, interests, experience, workPreference, journey } = req.body;
 
-    const prompt = `
-    Suggest EXACTLY 5 career ideas related to ${interest}.
+    // Build dynamic prompt from user profile
+    const skillsList = Array.isArray(skills) ? skills.join(", ") : (skills || "not specified");
+    const interestsList = Array.isArray(interests) ? interests.join(", ") : (interests || "not specified");
+    const journeyText = Array.isArray(journey) && journey.length > 0
+      ? journey.map(j => `${j.type}: ${j.title} (${j.duration})`).join("\n")
+      : "No prior career journey";
 
-    Rules:
-    - Only return 5
-    - Each must be simple beginner-friendly careers
-    - Return ONLY a JSON array
-    - No explanation
+    const prompt = `You are a career advisor AI.
 
-    Example:
-    ["Freelance Logo Designer", "Social Media Manager"]
-    `;
+Based on the user's profile below, suggest 3 highly personalized career paths.
+
+User Profile:
+- Name: ${name || "User"}
+- Age: ${age || "not specified"}
+- Skills: ${skillsList}
+- Interests: ${interestsList}
+- Experience Level: ${experience || "beginner"}
+- Work Preference: ${workPreference || "flexible"}
+- Career Journey: ${journeyText}
+
+Instructions:
+- Suggest SPECIFIC job roles (not generic fields)
+- Explain WHY each role fits the user
+- Suggest next steps (skills to learn, actions)
+- Avoid generic answers
+- Keep practical and realistic
+
+Return ONLY valid JSON in this exact format:
+{
+  "recommendations": [
+    {
+      "title": "Job Title",
+      "reason": "Why this fits the user",
+      "nextSteps": "What to do next"
+    }
+  ]
+}`;
 
     const response = await groq.chat.completions.create({
       model: "llama3-70b-8192",
@@ -71,34 +96,34 @@ app.post("/recommendations", async (req, res) => {
 
     let text = response.choices[0].message.content;
 
-    // fallback if AI breaks format
-    let recommendations;
-
     try {
-      recommendations = JSON.parse(text);
+      // Try to extract JSON from the response
+      const jsonMatch = text.match(/\{[\s\S]*\}/);
+      if (jsonMatch) {
+        const parsed = JSON.parse(jsonMatch[0]);
+        res.json(parsed);
+      } else {
+        throw new Error("No JSON found");
+      }
     } catch {
-      recommendations = [
-        `${interest} Freelancer`,
-        `${interest} Consultant`,
-        `${interest} Content Creator`,
-        `${interest} Online Coach`,
-        `${interest} Specialist`
-      ];
+      // Fallback recommendations
+      res.json({
+        recommendations: [
+          { title: `${interestsList.split(",")[0] || "General"} Freelancer`, reason: "Matches your interests and allows flexible work.", nextSteps: "Build a portfolio and sign up on freelance platforms." },
+          { title: `${skillsList.split(",")[0] || "General"} Consultant`, reason: "Leverages your existing skills for advisory roles.", nextSteps: "Network with professionals and create case studies." },
+          { title: "Online Content Creator", reason: "Great for flexible schedules and creative expression.", nextSteps: "Start a blog or YouTube channel in your interest area." }
+        ]
+      });
     }
-
-    res.json({ recommendations });
 
   } catch (error) {
     console.error(error);
 
-    // emergency fallback
     res.json({
       recommendations: [
-        "Freelancer",
-        "Consultant",
-        "Online Creator",
-        "Coach",
-        "Specialist"
+        { title: "Freelancer", reason: "Flexible career path for beginners.", nextSteps: "Explore freelance platforms." },
+        { title: "Consultant", reason: "Use your skills to advise others.", nextSteps: "Build expertise in your interest area." },
+        { title: "Online Creator", reason: "Share knowledge and build an audience.", nextSteps: "Start creating content online." }
       ]
     });
   }
