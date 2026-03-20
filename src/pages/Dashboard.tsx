@@ -66,7 +66,7 @@ const Dashboard = () => {
               </div>
               <div className="flex-1">
                 <h2 className="font-display text-xl font-semibold text-foreground">
-                  Career Readiness
+                  Progress
                 </h2>
                 <p className="text-xs text-muted-foreground font-body">
                   You are {progress}% ready to start earning
