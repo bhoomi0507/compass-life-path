@@ -21,6 +21,14 @@ import {
 } from "lucide-react";
 
 /* ── Journey steps ── */
+/* ── Week timelines per course ── */
+const COURSE_TIMELINES: Record<string, string[]> = {
+  "Content Writing": ["Week 1", "Week 1", "Week 2", "Week 3–4", "Week 5–6", "Week 7", "Week 8", "Week 9+"],
+  // Add more courses here later
+};
+
+const DEFAULT_TIMELINE = ["Week 1", "Week 1", "Week 2", "Week 3–4", "Week 5–6", "Week 7", "Week 8", "Week 9+"];
+
 const JOURNEY_STEPS = [
   { label: "Talk to Mentor", status: "done" as const, icon: Users },
   { label: "Get Assigned a Course", status: "done" as const, icon: GraduationCap },
