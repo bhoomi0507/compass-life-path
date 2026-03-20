@@ -264,7 +264,6 @@ const Dashboard = () => {
                           <span className="text-[11px] font-body font-medium text-muted-foreground whitespace-nowrap">
                             {(COURSE_TIMELINES[selectedCareer] || DEFAULT_TIMELINE)[idx]}
                           </span>
-                          </div>
                           {isLocked && (
                             <Lock className="h-3.5 w-3.5 text-muted-foreground flex-shrink-0" />
                           )}
