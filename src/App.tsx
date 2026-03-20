@@ -13,8 +13,8 @@ import CareerRecommendations from "./pages/CareerRecommendations";
 import CareerSimulation from "./pages/CareerSimulation";
 import LearningPath from "./pages/LearningPath";
 import Dashboard from "./pages/Dashboard";
-import Courses from "./pages/Courses";
 import Opportunities from "./pages/Opportunities";
+import { Navigate } from "react-router-dom";
 
 const queryClient = new QueryClient();
 
