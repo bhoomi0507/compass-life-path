@@ -21,6 +21,14 @@ import {
 } from "lucide-react";
 
 /* ── Journey steps ── */
+/* ── Week timelines per course ── */
+const COURSE_TIMELINES: Record<string, string[]> = {
+  "Content Writing": ["Week 1", "Week 1", "Week 2", "Week 3–4", "Week 5–6", "Week 7", "Week 8", "Week 9+"],
+  // Add more courses here later
+};
+
+const DEFAULT_TIMELINE = ["Week 1", "Week 1", "Week 2", "Week 3–4", "Week 5–6", "Week 7", "Week 8", "Week 9+"];
+
 const JOURNEY_STEPS = [
   { label: "Talk to Mentor", status: "done" as const, icon: Users },
   { label: "Get Assigned a Course", status: "done" as const, icon: GraduationCap },
@@ -159,9 +167,15 @@ const Dashboard = () => {
               <h3 className="font-display text-lg font-semibold text-foreground mb-1">
                 Your Career Journey
               </h3>
-              <p className="text-xs text-muted-foreground font-body mb-8">
+              <p className="text-xs text-muted-foreground font-body mb-2">
                 Follow each step to go from learning to earning.
               </p>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-primary/8 border border-primary/15 mb-8">
+                <Rocket className="h-3.5 w-3.5 text-primary" />
+                <span className="text-xs font-body font-medium text-primary">
+                  Estimated time to earning: 8–9 weeks
+                </span>
+              </div>
 
               <div className="relative pl-8">
                 {/* Vertical line */}
@@ -247,6 +261,9 @@ const Dashboard = () => {
                               </p>
                             )}
                           </div>
+                          <span className="text-[11px] font-body font-medium text-muted-foreground whitespace-nowrap">
+                            {(COURSE_TIMELINES[selectedCareer] || DEFAULT_TIMELINE)[idx]}
+                          </span>
                           {isLocked && (
                             <Lock className="h-3.5 w-3.5 text-muted-foreground flex-shrink-0" />
                           )}
