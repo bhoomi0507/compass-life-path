@@ -6,35 +6,35 @@
 
 @layer base {
   :root {
-    --background: 12 33% 95%;
-    --foreground: 220 20% 18%;
+    --background: 0 0% 99%;
+    --foreground: 220 20% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 20% 18%;
+    --card-foreground: 220 20% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 20% 18%;
+    --popover-foreground: 220 20% 12%;
 
-    --primary: 5 30% 62%;
+    --primary: 220 18% 20%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 5 30% 88%;
-    --secondary-foreground: 220 20% 18%;
+    --secondary: 220 10% 96%;
+    --secondary-foreground: 220 20% 12%;
 
-    --muted: 12 20% 92%;
-    --muted-foreground: 220 10% 45%;
+    --muted: 220 10% 96%;
+    --muted-foreground: 220 10% 50%;
 
-    --accent: 340 25% 75%;
-    --accent-foreground: 220 20% 18%;
+    --accent: 12 30% 55%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 12 15% 88%;
-    --input: 12 15% 88%;
-    --ring: 5 30% 62%;
+    --border: 220 10% 92%;
+    --input: 220 10% 92%;
+    --ring: 220 18% 20%;
 
-    --radius: 1.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
@@ -48,41 +48,41 @@
     --font-display: 'Playfair Display', serif;
     --font-body: 'Inter', sans-serif;
 
-    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.04);
-    --shadow-card-hover: 0 14px 40px rgba(0, 0, 0, 0.08);
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.04), 0 4px 12px rgba(0, 0, 0, 0.03);
+    --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.06);
   }
 
   .dark {
-    --background: 220 30% 8%;
-    --foreground: 12 20% 92%;
+    --background: 220 20% 7%;
+    --foreground: 220 10% 90%;
 
-    --card: 220 28% 12%;
-    --card-foreground: 12 20% 92%;
+    --card: 220 18% 10%;
+    --card-foreground: 220 10% 90%;
 
-    --popover: 220 28% 12%;
-    --popover-foreground: 12 20% 92%;
+    --popover: 220 18% 10%;
+    --popover-foreground: 220 10% 90%;
 
-    --primary: 5 30% 65%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 220 10% 85%;
+    --primary-foreground: 220 20% 7%;
 
-    --secondary: 220 25% 18%;
-    --secondary-foreground: 12 20% 92%;
+    --secondary: 220 15% 14%;
+    --secondary-foreground: 220 10% 90%;
 
-    --muted: 220 25% 16%;
-    --muted-foreground: 12 10% 60%;
+    --muted: 220 15% 14%;
+    --muted-foreground: 220 10% 55%;
 
-    --accent: 340 20% 35%;
-    --accent-foreground: 12 20% 92%;
+    --accent: 12 30% 55%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 25% 18%;
-    --input: 220 25% 18%;
-    --ring: 5 30% 65%;
+    --border: 220 15% 16%;
+    --input: 220 15% 16%;
+    --ring: 220 10% 85%;
 
-    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.2);
-    --shadow-card-hover: 0 14px 40px rgba(0, 0, 0, 0.3);
+    --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.2), 0 4px 12px rgba(0, 0, 0, 0.15);
+    --shadow-card-hover: 0 4px 16px rgba(0, 0, 0, 0.25);
   }
 }
 
@@ -94,6 +94,8 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -103,15 +105,14 @@
 
 @layer components {
   .compass-card {
-    @apply bg-card rounded-3xl border border-border p-8;
+    @apply bg-card rounded-2xl border border-border p-6;
     box-shadow: var(--shadow-card);
-    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .compass-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-card-hover);
-    border-color: hsl(var(--primary));
   }
 
   .section-spacing {
@@ -119,7 +120,7 @@
   }
 
   .container-narrow {
-    @apply max-w-6xl mx-auto px-6 md:px-8;
+    @apply max-w-5xl mx-auto px-6 md:px-8;
   }
 }
 
