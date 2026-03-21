@@ -4,25 +4,25 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium font-body ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap text-sm font-medium font-body ring-offset-background transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg shadow-sm",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 rounded-lg",
-        outline: "border border-border bg-background hover:bg-secondary text-foreground rounded-lg",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-lg",
-        ghost: "hover:bg-secondary text-foreground rounded-lg",
+        default: "bg-primary text-primary-foreground hover:bg-primary/85 rounded-full",
+        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90 rounded-full",
+        outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground rounded-full",
+        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80 rounded-full",
+        ghost: "hover:bg-accent hover:text-accent-foreground rounded-full",
         link: "text-primary underline-offset-4 hover:underline",
-        hero: "bg-primary text-primary-foreground hover:bg-primary/90 rounded-lg shadow-sm",
-        "hero-outline": "border border-border text-foreground hover:bg-secondary rounded-lg",
+        hero: "bg-primary text-primary-foreground hover:bg-primary/85 rounded-full shadow-lg hover:shadow-xl hover:-translate-y-0.5",
+        "hero-outline": "border-2 border-primary text-primary hover:bg-primary hover:text-primary-foreground rounded-full",
       },
       size: {
-        default: "h-9 px-4 py-2",
-        sm: "h-8 px-3 text-xs",
-        lg: "h-11 px-6",
-        xl: "h-12 px-8 text-base font-medium",
-        icon: "h-9 w-9",
+        default: "h-10 px-6 py-2",
+        sm: "h-9 rounded-full px-4",
+        lg: "h-12 rounded-full px-8 text-base",
+        xl: "h-14 rounded-full px-10 text-base font-semibold",
+        icon: "h-10 w-10",
       },
     },
     defaultVariants: {
