@@ -118,9 +118,9 @@ const Index = () => {
       </section>
 
       {/* Why HerPath */}
-      <section className="section-spacing">
+      <section className="py-12 md:py-16">
         <div className="container-narrow">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">Why HerPath</h2>
             <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">Built to help you find careers that truly work for your life</p>
           </div>
