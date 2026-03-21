@@ -19,6 +19,7 @@ const Navbar = () => {
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-8">
           <Link to="/" className="text-sm font-body text-muted-foreground hover:text-foreground transition-colors duration-200">Home</Link>
+          <a href="/#dashboard-preview" className="text-sm font-body text-muted-foreground hover:text-foreground transition-colors duration-200">See Preview</a>
           <a href="/#how-it-works" className="text-sm font-body text-muted-foreground hover:text-foreground transition-colors duration-200">How It Works</a>
           <Link to="/dashboard" className="text-sm font-body text-muted-foreground hover:text-foreground transition-colors duration-200">Dashboard</Link>
           <Link to="/opportunities" className="text-sm font-body text-muted-foreground hover:text-foreground transition-colors duration-200">Opportunities</Link>
@@ -47,6 +48,7 @@ const Navbar = () => {
       {mobileOpen && (
         <div className="md:hidden border-t border-border bg-background/95 backdrop-blur-md px-6 pb-6 pt-4 space-y-4">
           <Link to="/" onClick={() => setMobileOpen(false)} className="block text-sm font-body text-foreground">Home</Link>
+          <a href="/#dashboard-preview" onClick={() => setMobileOpen(false)} className="block text-sm font-body text-foreground">See Preview</a>
           <a href="/#how-it-works" onClick={() => setMobileOpen(false)} className="block text-sm font-body text-foreground">How It Works</a>
           <Link to="/dashboard" onClick={() => setMobileOpen(false)} className="block text-sm font-body text-foreground">Dashboard</Link>
           <Link to="/opportunities" onClick={() => setMobileOpen(false)} className="block text-sm font-body text-foreground">Opportunities</Link>
