@@ -172,7 +172,10 @@ export default function CareerRecommendations() {
         )}
 
         {selectedCareer && (
-          <div className="mt-8 flex justify-end">
+          <div className="mt-8 flex flex-wrap gap-3 justify-end">
+            <Button variant="hero-outline" size="lg" onClick={() => navigate("/simulation")}>
+              🎮 Try Simulation
+            </Button>
             <Button onClick={handleContinue} size="lg">
               Continue
             </Button>
