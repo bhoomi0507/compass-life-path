@@ -62,6 +62,7 @@ const Dashboard = () => {
         <div className="max-w-7xl mx-auto px-6">
           {/* Header */}
           <div className="text-center mb-8">
+            <p className="text-sm font-body text-primary font-medium mb-1">This is your personalized career journey</p>
             <h1 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-2">
               Your Dashboard
             </h1>
