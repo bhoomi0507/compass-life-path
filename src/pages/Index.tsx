@@ -17,8 +17,8 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="flex items-center gap-3 mb-2">
-                <img src={logo} alt="HerPath" className="h-32 w-32 dark:invert" />
-                <span className="text-lg font-body font-semibold text-muted-foreground tracking-wide uppercase">HerPath</span>
+                <img src={logo} alt="HerPath" className="h-24 w-24 dark:invert" />
+                <span className="text-sm font-body text-muted-foreground tracking-wide uppercase">HerPath</span>
               </div>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance" style={{ lineHeight: '1.1' }}>
                 From <span className="text-foreground">Learning</span> to <span className="text-primary">Earning</span> — Designed for Women
@@ -59,9 +59,9 @@ const Index = () => {
       </section>
 
       {/* Why This Matters */}
-      <section className="section-spacing">
+      <section className="py-12 md:py-16">
         <div className="container-narrow">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">Why This Matters</h2>
             <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">The gap between women's potential and opportunity is real — and solvable</p>
           </div>
@@ -81,7 +81,7 @@ const Index = () => {
               </div>
             ))}
           </div>
-          <div className="mt-12 text-center">
+          <div className="mt-8 text-center">
             <p className="font-display text-xl md:text-2xl font-semibold text-foreground max-w-2xl mx-auto leading-snug">
               HerPath is built to change this — by turning potential into income.
             </p>
@@ -90,9 +90,9 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="section-spacing bg-muted/30">
+      <section id="how-it-works" className="py-12 md:py-16 bg-muted/30">
         <div className="container-narrow">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">How It Works</h2>
             <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">Your career journey in five simple stages</p>
           </div>
@@ -118,9 +118,9 @@ const Index = () => {
       </section>
 
       {/* Why HerPath */}
-      <section className="section-spacing">
+      <section className="py-12 md:py-16">
         <div className="container-narrow">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">Why HerPath</h2>
             <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">Built to help you find careers that truly work for your life</p>
           </div>
