@@ -17,8 +17,8 @@ const Index = () => {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="flex items-center gap-3 mb-2">
-                <img src={logo} alt="HerPath" className="h-32 w-32 dark:invert" />
-                <span className="text-lg font-body font-semibold text-muted-foreground tracking-wide uppercase">HerPath</span>
+                <img src={logo} alt="HerPath" className="h-24 w-24 dark:invert" />
+                <span className="text-sm font-body text-muted-foreground tracking-wide uppercase">HerPath</span>
               </div>
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight text-balance" style={{ lineHeight: '1.1' }}>
                 From <span className="text-foreground">Learning</span> to <span className="text-primary">Earning</span> — Designed for Women
