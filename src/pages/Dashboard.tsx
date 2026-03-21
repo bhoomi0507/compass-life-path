@@ -133,9 +133,14 @@ const Dashboard = () => {
                     </div>
                   </div>
                 </div>
-                <Button variant="hero" size="default" className="w-full mt-6" asChild>
-                  <Link to="/opportunities">Continue Learning <ArrowRight className="ml-2 h-4 w-4" /></Link>
-                </Button>
+                <div className="flex flex-col gap-2 mt-6">
+                  <Button variant="hero" size="default" className="w-full" asChild>
+                    <Link to="/opportunities">Continue Learning <ArrowRight className="ml-2 h-4 w-4" /></Link>
+                  </Button>
+                  <Button variant="hero-outline" size="default" className="w-full" asChild>
+                    <Link to="/simulation">🎮 Try Simulation</Link>
+                  </Button>
+                </div>
               </div>
 
               <MicroProgress />
