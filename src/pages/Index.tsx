@@ -81,7 +81,7 @@ const Index = () => {
               </div>
             ))}
           </div>
-          <div className="mt-12 text-center">
+          <div className="mt-8 text-center">
             <p className="font-display text-xl md:text-2xl font-semibold text-foreground max-w-2xl mx-auto leading-snug">
               HerPath is built to change this — by turning potential into income.
             </p>
