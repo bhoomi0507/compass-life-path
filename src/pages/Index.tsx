@@ -90,9 +90,9 @@ const Index = () => {
       </section>
 
       {/* How It Works */}
-      <section id="how-it-works" className="section-spacing bg-muted/30">
+      <section id="how-it-works" className="py-12 md:py-16 bg-muted/30">
         <div className="container-narrow">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">How It Works</h2>
             <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">Your career journey in five simple stages</p>
           </div>
