@@ -59,9 +59,9 @@ const Index = () => {
       </section>
 
       {/* Why This Matters */}
-      <section className="section-spacing">
+      <section className="py-12 md:py-16">
         <div className="container-narrow">
-          <div className="text-center mb-16">
+          <div className="text-center mb-10">
             <h2 className="font-display text-3xl md:text-4xl font-bold text-foreground mb-4">Why This Matters</h2>
             <p className="text-muted-foreground font-body text-lg max-w-2xl mx-auto">The gap between women's potential and opportunity is real — and solvable</p>
           </div>
